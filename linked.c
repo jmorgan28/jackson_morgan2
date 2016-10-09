@@ -41,5 +41,7 @@ int main(){
   g = insert_front(f, 6);
   print_list(g);
   print_list(g);
+  g = insert_front(g, 16);
+  print_list(g);
   return 0;
 }
