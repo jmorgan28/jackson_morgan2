@@ -6,7 +6,7 @@ struct node {int i; struct node *next;};
 
 
 void print_list(struct node *n){
-  if(n->i == NULL && n->next == NULL){
+  if(n == NULL){
     printf("[]");
     return;
   }
