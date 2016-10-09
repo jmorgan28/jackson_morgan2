@@ -1,0 +1,6 @@
+listdo:strfunc.c
+	gcc linked.c -o listdo
+
+run: listdo
+	./listdo
+
