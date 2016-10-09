@@ -6,12 +6,10 @@ struct node {int i; struct node *next;};
 
 
 void print_list(struct node *n){
-  printf("1\n");
   if(n == NULL){
     printf("[]");
     return;
   }
-  printf("2\n");
   struct node *temp;
   temp = (struct node *) malloc(sizeof(struct node));
   temp = n;
@@ -53,17 +51,25 @@ int main(){
   struct node *f;
   f = (struct node *) malloc(sizeof(struct node));
   f->i = 4;
+  printf("new struct node f made with value 4\n");
+  printf("the result of print_list(f): ");
   print_list(f);
+  printf("stuct node g = insert_front(f,6)\n");
+  printf("the result of print_list(g): ");
   insert_front(f, 6);
   struct node *g;
   g = (struct node *) malloc(sizeof(struct node));
   g = insert_front(f, 6);
   print_list(g);
-  print_list(g);
+  printf("stuct node g = insert_front(g,16)\n");
   g = insert_front(g, 16);
-  printf("0---------------");
+  printf("the result of print_list(g): ");
   print_list(g);
-  printf("0---------------");
+  g = insert_front(g, -504);
+  printf("stuct node g = insert_front(g,-504)\n");
+  printf("the result of print_list(g): ");
+  print_list(g);
+  printf("print_list(free_list(g)) is called and we get: ");
   print_list(free_list(g));
   return 0;
 }
