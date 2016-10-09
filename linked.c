@@ -6,10 +6,12 @@ struct node {int i; struct node *next;};
 
 
 void print_list(struct node *n){
-  if(n->i == NULL && n->next == NULL){
+  printf("1\n");
+  if(n == NULL){
     printf("[]");
     return;
   }
+  printf("2\n");
   struct node *temp;
   temp = (struct node *) malloc(sizeof(struct node));
   temp = n;
@@ -33,20 +35,15 @@ struct node * insert_front(struct node *n, int i){
 struct node * free_list(struct node *n){
   struct node *temp;
   temp = (struct node *) malloc(sizeof(struct node));
-  //struct node *ret;
-  //ret = (struct node *) malloc(sizeof(struct node));
   temp = n;
-  free((n->i));
   while((*temp).next != NULL){
     struct node *temp1;
     temp1 = (struct node *) malloc(sizeof(struct node));
     temp = (*temp).next;
-    free((*temp1).next);
-    free((*temp).i);
+    free(temp1);
+    temp1 = NULL;
   }
-  n->i = NULL;
-  n->next = NULL;
-  
+  n= NULL;
   return n;
 }
 
@@ -64,7 +61,9 @@ int main(){
   print_list(g);
   print_list(g);
   g = insert_front(g, 16);
+  printf("0---------------");
   print_list(g);
-  print_list(free_list(g));  
+  printf("0---------------");
+  print_list(free_list(g));
   return 0;
 }
